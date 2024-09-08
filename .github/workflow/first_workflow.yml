@@ -1,0 +1,13 @@
+name: test-job
+on: [workflow-dispatch]
+jobs:
+  say-hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Run on a triger of manual"
+        run: echo "Hello this is a first program"
+      - name: "Trying a sending step with multiple steps"
+        run: |
+          echo "We all can try this befor anything"
+          echo "For example, this is a crazy learning spree."
+
