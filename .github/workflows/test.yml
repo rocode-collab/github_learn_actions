@@ -4,7 +4,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      uses: action/checkout@v3
-      run: |
-        echo ${{ github.workspace }}
-        echo $GITHUB_WORKSPACE
+      - uses: action/checkout@v3
+        run: |
+          echo ${{ github.workspace }}
+          echo $GITHUB_WORKSPACE
