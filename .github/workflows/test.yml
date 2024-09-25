@@ -2,7 +2,7 @@ name: test_checkout_location
 on: [workflow_dispatch]
 jobs:
   test:
-    run-on: ubuntu-latest
+    runs-on: ubuntu-latest
     steps:
       uses: action/checkout@v3
       run: |
