@@ -1,10 +1,15 @@
-name: test_checkout_location
-on: workflow_dispatch
+name: Echo Workspace
+
+on:
+  push:
+    branches: [main]
+
 jobs:
-  test:
+  echo_workspace:
     runs-on: ubuntu-latest
     steps:
-      - uses: action/checkout@v3
-        run: |
-          echo ${{ github.workspace }}
-          echo $GITHUB_WORKSPACE
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Echo workspace directory
+        run: echo "Workspace directory: ${{ github.workspace }}"
