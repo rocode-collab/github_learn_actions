@@ -1,0 +1,32 @@
+name: Replace JSON Values and Run Script
+
+on: [workflow_dispatch]
+
+jobs:
+  replace-json-values-and-run-script:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Replace JSON Values
+        run: |
+          json_file_path: ${{ github.workspace }}/path/to/your/tes.json
+          replacements="${{ secrets.JSON_REPLACEMENTS }}"
+
+          # Parse the JSON file
+          json_data=$(jq -r . "$json_file_path")
+
+          # Iterate over replacements and update JSON data
+          for replacement in $replacements; do
+            key=$(echo "$replacement" | cut -d '=' -f 1)
+            value=$(echo "$replacement" | cut -d '=' -f 2)
+            json_data=$(echo "$json_data" | jq ".${key} = \"$value\"")
+          done
+
+          # Write updated JSON data back to file
+          echo "$json_data" > "$json_file_path"
+
+      - name: Run Script with Updated JSON
+        run: |
+          script_path="${{ secrets.SCRIPT_PATH }}"
+          script_args="${{ secrets.SCRIPT_ARGS }}"
+          ./"$script_path" "$json_file_path" "$script_args"
