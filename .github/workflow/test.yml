@@ -1,5 +1,5 @@
 name: test_checkout_location
-on: [workload_dispatch]
+on: [workflow_dispatch]
 jobs:
   test:
     run-on: ubuntu-latest
