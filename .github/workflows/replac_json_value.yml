@@ -11,6 +11,10 @@ jobs:
       - uses: actions/checkout@v3
       - name: Replace JSON Values
         run: |
+          cat tes.json
+          ls -la
+          chmod 777 tes.json
+          cat ${{env.JSON_VAR}}
           jq '. | .city = "${{ env.JSON_VAR }}"' tes.json > replaced_json.json
       - name: Display replaced JSON
         run: |
