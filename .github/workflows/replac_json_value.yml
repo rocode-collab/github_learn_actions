@@ -11,9 +11,11 @@ jobs:
       - uses: actions/checkout@v3
       - name: Replace JSON Values
         run: |
+          pwd
           ls -la
-          json_file_path: ${{ github.workspace }}
-          replacements="${{ secrets.JSON_REPLACEMENTS }}"
+          chmod 755 ./*.json
+          json_file_path = ${{ github.workspace }}
+          replacements = "${{ secrets.JSON_REPLACEMENTS }}"
 
           # Parse the JSON file
           json_data=$(jq -r . "$json_file_path")
