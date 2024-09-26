@@ -1,5 +1,5 @@
 {
     "name": "John Doe",
     "age": 30,
-    "city": "${{ vars.JSON_VAR }}"
+    "city": "${{ secrets.JSON_REPLACEMENTS }}"
 }
