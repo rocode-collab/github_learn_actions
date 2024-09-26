@@ -14,6 +14,7 @@ jobs:
           pwd
           ls -la
           chmod 755 tes.json
-          sed -i 's/${{ secrets.JSON_REPLACEMENTS }}/'"${{ secrets.JSON_REPLACEMENTS }}"'"/g' tes.json
+          ls -la
+          sed -i 's/${{ JSON_VAR }}/'"${{ JSON_VAR }}"'"/g' tes.json
           echo "$(cat tes.json)"
         
