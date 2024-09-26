@@ -13,4 +13,5 @@ jobs:
         run: |
           pwd
           ls -la
-          bash ./.github/workflows/repl.sh
+          sed -i 's/${{ secrets.JSON_REPLACEMENTS }}/'"${{ secrets.JSON_REPLACEMENTS }}"'"/g' tes.json
+          cat tes.json
