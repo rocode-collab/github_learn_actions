@@ -1,5 +1,5 @@
 {
     "name": "John Doe",
     "age": 30,
-    "city": "${{ JSON_VAR }}"
+    "city": "${{ env.JSON_VAR }}"
   }
