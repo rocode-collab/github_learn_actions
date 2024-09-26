@@ -11,4 +11,6 @@ jobs:
       - uses: actions/checkout@v3
       - name: Replace JSON Values
         run: |
-          bash ./repl.sh
+          pwd
+          ls -la
+          bash repl.sh
