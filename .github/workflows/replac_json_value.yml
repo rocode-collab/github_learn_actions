@@ -13,8 +13,8 @@ jobs:
         run: |
           pwd
           ls -la
-          chmod 755 ./*.json
-          json_file_path = ${{ github.workspace }}
+          chmod 755 ${{ github.workspace }}/*.json
+          json_file_path = $(pwd)
           replacements = "${{ secrets.JSON_REPLACEMENTS }}"
 
           # Parse the JSON file
