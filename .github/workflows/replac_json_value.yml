@@ -14,11 +14,10 @@ jobs:
           pwd
           ls -la
           chmod 755 ${{ github.workspace }}/*.json
-          json_file_path = "${{ github.workspace }}"
           replacements = "${{ secrets.JSON_REPLACEMENTS }}"
 
           # Parse the JSON file
-          json_data=$(jq -r . "$json_file_path")
+          json_data=$(jq -r . ${{ github.workspace}})
 
           # Iterate over replacements and update JSON data
           for replacement in $replacements; do
@@ -28,5 +27,5 @@ jobs:
           done
 
           # Write updated JSON data back to file
-          echo "$json_data" > "$json_file_path"
+          echo "$json_data" > ${{github.workspace}}/tes.json
           echo ${{ github.workspace }}/tes.json
