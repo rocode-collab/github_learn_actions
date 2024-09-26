@@ -14,7 +14,7 @@ jobs:
           cat tes.json
           ls -la
           chmod 777 tes.json
-          jq '. | .city = ${{ secrets.JSON_REPLACEMENTS }}' tes.json > replaced_json.json
+          jq '. | .city = "${{ secrets.JSON_REPLACEMENTS }}"' tes.json > replaced_json.json
       - name: Display replaced JSON
         run: |
           cat replaced_json.json
