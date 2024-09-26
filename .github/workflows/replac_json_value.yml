@@ -14,4 +14,6 @@ jobs:
           pwd
           ls -la
           sed -i 's/${{ secrets.JSON_REPLACEMENTS }}/'"${{ secrets.JSON_REPLACEMENTS }}"'"/g' tes.json
-          cat tes.json
+        run: |
+          echo "$(cat tes.json)"
+        
